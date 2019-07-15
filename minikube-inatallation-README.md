@@ -75,7 +75,7 @@ minikube-installer.exe
 
 ## 6. minikube 실행
 ### minikube 최초 실행
-minikube start --cpus 2 --memory 2048 --disk-size 20g --vm-driver virtualbox -p minikube
+    minikube start --cpus 2 --memory 2048 --disk-size 20g --vm-driver virtualbox -p minikube
 
 --cpus: CPU 개수 (기본 2)
 --memory: 메모리 크기 (기본 2048)
@@ -84,22 +84,22 @@ minikube start --cpus 2 --memory 2048 --disk-size 20g --vm-driver virtualbox -p 
 -p: 프로파일(K8s 클러스터 이름) (기본 minikube)
 
 ### minikube 중지
-### minikube stop
+    minikube stop
 
 ### minikube 실행
-minikube start
+    minikube start
 
 ### minikube 삭제
-minikube delete (-p <프로파일>)
+    minikube delete (-p <프로파일>)
 
 ### minikube 구성 파일 초기화
-rm -rf ~/.minikube
+    rm -rf ~/.minikube
 
 ## (옵션) 7. Virtual Studio Code (Text Editor)
 VSCODE
 
 ### macOS
-brew cask install visual-studio-code
+    brew cask install visual-studio-code
 
 ### Windows
-choco install vscode
+    choco install vscode
