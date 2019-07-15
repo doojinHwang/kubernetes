@@ -4,8 +4,7 @@
 Windows에서 powerShell(cmd) 접속시 마다 아래 환경변수 설정이 필요.
 
 ## 1) docker 실행확인
-
-> docker ps
+  docker ps
 
 powerShell, cmd에서 docker 실행시 error발생시 권한설정필요.
 
@@ -13,10 +12,8 @@ powerShell, cmd에서 docker 실행시 error발생시 권한설정필요.
 
 
 ## 2) docker 실행권한 확인  
-
-minikube.exe docker-env 명령으로 확인 후 아래 Run 명령 구문으로 확인후 powerShell, cmd 명령에 맞게 실행
-
-> minikube.exe docker-env
+  minikube.exe docker-env 
+위 명령으로 확인 후 powerShell, cmd 명령에 맞게 실행
 
 $Env:DOCKER_TLS_VERIFY = "1"  
 $Env:DOCKER_HOST = "tcp://192.168.99.100:2376"  
@@ -27,13 +24,11 @@ $Env:DOCKER_CERT_PATH = "C:\Users\ktds\.minikube\certs"
 ## 3) docker 권한설정
 
 ### powerShell.exe
-> minikube docker-env | Invoke-Expression 
+  minikube docker-env | Invoke-Expression 
 
 ### cmd.exe
-> @FOR /f "tokens=*" %i IN ('minikube docker-env') DO @%i <==cmd
+  @FOR /f "tokens=*" %i IN ('minikube docker-env') DO @%i
 
-
-(참고 cmd 명령어) : @FOR /f "tokens=*" %i IN ('minikube docker-env') DO @%i
 
 
 ## 4) docker 확인
