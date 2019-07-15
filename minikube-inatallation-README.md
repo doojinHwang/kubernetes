@@ -74,6 +74,10 @@ https://www.virtualbox.org/wiki/Linux_Downloads
 [minikube-installer.exe](https://github.com/kubernetes/minikube/releases/latest)
 
 ## 6. minikube 실행
+### 설치후 설치확인
+- minikube
+- kubectl
+
 ### minikube 최초 실행
     minikube start --cpus 2 --memory 2048 --disk-size 20g --vm-driver virtualbox -p minikube
 
@@ -103,9 +107,3 @@ https://www.virtualbox.org/wiki/Linux_Downloads
 
 ### Windows
     choco install vscode
-
-
-## 설치후 설치확인
-### minikube
-- minikube
-- kubectl
