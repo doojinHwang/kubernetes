@@ -50,24 +50,24 @@ https://www.virtualbox.org/wiki/Downloads
 https://www.virtualbox.org/wiki/Linux_Downloads
 
 ### macOS
-brew cask install virtualbox virtualbox-extension-pack
+    brew cask install virtualbox virtualbox-extension-pack
 
 ### Windows
-choco install virtualbox virtualbox.extensionpack
+    choco install virtualbox virtualbox.extensionpack
 
 ## 5. minikube 설치
 ### Linux
-curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube sudo cp minikube /usr/local/bin && rm minikube
+    curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64 && chmod +x minikube sudo cp minikube /usr/local/bin && rm minikube
 
 ### macOS
-brew cask install minikube brew install kubernetes-cli docker
+    brew cask install minikube brew install kubernetes-cli docker
 
 또는
 
 curl -Lo minikube https://storage.googleapis.com/minikube/releases/latest/minikube-darwin-amd64 && chmod +x minikube sudo mv minikube /usr/local/bin
 
 ### Windows
-choco install minikube kubernetes-cli docker
+    choco install minikube kubernetes-cli docker
 
 또는
 
