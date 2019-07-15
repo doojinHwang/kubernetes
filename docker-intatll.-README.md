@@ -86,8 +86,8 @@ run: create + start 합친 형태
 ### Container 명령 실행하기
 > docker exec < name | id > <command>
 > docker exec -it 2d81 sh
-위 명령 실행시 shell로 접속됨.
-#hostname
+위 명령 실행시 shell로 접속됨.  
+#hostname  
 #2d81~~~
 
 ### Container 표준 입력/출력/에러 붙이기
