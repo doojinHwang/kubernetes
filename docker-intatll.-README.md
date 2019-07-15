@@ -37,3 +37,6 @@ $Env:DOCKER_CERT_PATH = "C:\Users\ktds\.minikube\certs"
 
 ## 4) docker 확인
 > docker ps
+
+#### docker 컨테이너 중  ubuntu 찾기
+>$ docker ps -a | findstr ubuntu
