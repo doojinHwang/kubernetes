@@ -3,21 +3,21 @@
 Intel VT-x 또는 AMD AMD-v 활성화 및 지원 여부 확인
 
 ### Linux
-egrep --color 'vmx|svm' /proc/cpuinfo
+    egrep --color 'vmx|svm' /proc/cpuinfo
 
 ### macOS
-sysctl -a | grep machdep.cpu.features | grep VMX
+    sysctl -a | grep machdep.cpu.features | grep VMX
 
 ### Windows
-systeminfo
+    systeminfo
 
 다음과 같은 출력이 확인되어야 함
 
-Hyper-V Requirements:
-    VM Monitor Mode Extensions: Yes
-    Virtualization Enabled In Firmware: Yes
-    Second Level Address Translation: Yes
-    Data Execution Prevention Available: Yes
+    Hyper-V Requirements:
+        VM Monitor Mode Extensions: Yes
+        Virtualization Enabled In Firmware: Yes
+        Second Level Address Translation: Yes
+        Data Execution Prevention Available: Yes
 
 ## 2. 지원되는 하이파바이저
 ### Linux
@@ -31,14 +31,16 @@ VirtualBox(권장), Hyper-V
 
 ## (옵션) 3. 패키지 관리자 설치
 ### macOS - homebrew 설치
-/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
 ### Windows - Chocolatey 설치
 cmd.exe
-@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
+
+    @"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"
 
 PowerShell.exe
-Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+
+    Set-ExecutionPolicy Bypass -Scope Process -Force; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
 
 ## (옵션) 4. VirtualBox 설치
 ### 수동 설치
