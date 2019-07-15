@@ -37,10 +37,10 @@ $Env:DOCKER_CERT_PATH = "C:\Users\ktds\.minikube\certs"
 
 
 ## 4) docker 확인
-> docker --version
+  docker --version
 
 ### docker image 확인
-> docker images
+  docker images
 
 ### docker image 삭제
 > docker rmi <image>
@@ -51,15 +51,13 @@ $Env:DOCKER_CERT_PATH = "C:\Users\ktds\.minikube\certs"
 ### docker image 자세한 정보 확인
 > docker image inspect < image | id >
 
-
-
 ### docker container 확인
-> docker ps
-> docker ps -a
+  docker ps
+  docker ps -a
 
 ### Container 생성
 > docker create <image>
-> docker create --name web1 httpd
+  docker create --name web1 httpd
   
 ### Conatiner 시작
 > docker start < name | id >
@@ -85,7 +83,7 @@ run: create + start 합친 형태
 
 ### Container 명령 실행하기
 > docker exec < name | id > <command>
-> docker exec -it 2d81 sh  
+  docker exec -it 2d81 sh  
 위 명령 실행시 shell로 접속됨.  
 #hostname  
 #2d81~~~
