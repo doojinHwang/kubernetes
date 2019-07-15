@@ -31,7 +31,10 @@ $Env:DOCKER_CERT_PATH = "C:\Users\ktds\.minikube\certs"
 
 ## 4) docker 확인
     docker --version
-
+1) EE(docker enterprise 버전)
+2) CE(open source): 실습시 사용
+ 가. Edge - 1 월  주기로 개발됨, -최신버전이나 안정되질 않음  
+ 나. Stable - 3개월 주기로 update 기술지원은 4개월까지
 
 # docker 명령어
 
@@ -100,3 +103,18 @@ image삭제: docker rmi <image>
 
 #### docker 컨테이너 중  ubuntu 찾기
 > $ docker ps -a | findstr ubuntu
+
+<hr/>
+
+### image 와  container 의 큰 차이점
+-image: disk에 존재
+-container : 메모리에 존재
+
+### docker host
+docker가 엔진이 설치된 머신
+ - 다수의 contaniner 존재(설치 가능)
+
+### namespace
+독립환경을 만들고(격리) 이 환경에서 애플래케이션 실행
+### cgroup: host의 리소스를 공유
+(참고) 리눅스 커널의 고유 기능: namespace, cgroup
