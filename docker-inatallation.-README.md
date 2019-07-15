@@ -32,6 +32,9 @@ $Env:DOCKER_CERT_PATH = "C:\Users\ktds\.minikube\certs"
 ## 4) docker 확인
     docker --version
 
+
+# docker 명령어
+
 ### docker image 확인
     docker images
 
