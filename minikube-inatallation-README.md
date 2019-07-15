@@ -108,6 +108,8 @@ https://www.virtualbox.org/wiki/Linux_Downloads
 ### Windows
     choco install vscode
 
+### (중요) Visual Studio Code  에서 작성시 편집기 우측 하단의 개행 값을  ##CRLF## 를 ##LF##로 
+
 <hr/>
 
 ### 가상컴퓨터의 IP확인
