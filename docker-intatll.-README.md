@@ -51,6 +51,8 @@ $Env:DOCKER_CERT_PATH = "C:\Users\ktds\.minikube\certs"
 ### docker image 자세한 정보 확인
 > docker image inspect < image | id >
 
+
+
 ### docker container 확인
 > docker ps
 > docker ps -a
@@ -83,9 +85,14 @@ run: create + start 합친 형태
 
 ### Container 명령 실행하기
 > docker exec < name | id > <command>
+> docker exec -it 2d81 sh
+위 명령 실행시 shell로 접속됨.
+# hostname
+# 2d81~~~
 
 ### Container 표준 입력/출력/에러 붙이기
 > docker attach < name | id >
+node 입/출력을 attach(붙였다.)
 
 ### Container 자세한 정보 확인
 > docker inspect < name | id >
