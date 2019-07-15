@@ -3,7 +3,7 @@
 ## windows powerShell(cmd) docker ps 등 명령어 실행시 에러발생시 아래 환결설정 필요
 Windows에서 powerShell(cmd) 접속시 마다 아래 환경변수 설정이 필요.
 
-## 1) docker 실행확인
+## 1) docker 실행확인  
   docker ps
 
 powerShell, cmd에서 docker 실행시 error발생시 권한설정필요.
