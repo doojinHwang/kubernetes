@@ -1,14 +1,5 @@
 # windows powerShell(cmd) docker ps 등 명령어 실행시 에러발생시.. 아래 2개명령 실행
 
-> minikeub.exe docker-env
-
-### * powerShell.exe
-> minikube docker-env | Invoke-Expression <== powerShell
-### cmd.exe
-> @FOR /f "tokens=*" %i IN ('minikube docker-env') DO @%i <==cmd
-
-<hr/>
-
 ## 1) docker 실행확인
 
 > docker ps
@@ -29,3 +20,17 @@ $Env:DOCKER_HOST = "tcp://192.168.99.100:2376"
 $Env:DOCKER_CERT_PATH = "C:\Users\ktds\.minikube\certs"  
 '# Run this command to configure your shell:  
 '# & minikube docker-env | Invoke-Expression  
+
+## 3) docker 권한설정
+
+### * powerShell.exe
+> minikube docker-env | Invoke-Expression 
+
+### cmd.exe
+> @FOR /f "tokens=*" %i IN ('minikube docker-env') DO @%i <==cmd
+
+
+(참고 cmd 명령어) : @FOR /f "tokens=*" %i IN ('minikube docker-env') DO @%i
+
+## 4) docker 확인
+> docker ps
