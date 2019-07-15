@@ -1,3 +1,23 @@
+# docker 설치
+## 1.yum 설치(사전 package설치]
+    $ sudo yum install -y yum-utils \
+    device-mapper-persistent-data \
+    lvm2
+
+    $ sudo yum-config-manager \
+        --add-repo \
+        https://download.docker.com/linux/centos/docker-ce.repo
+
+## 2. docker 설치
+    $ sudo yum install docker-ce docker-ce-cli containerd.io
+    $ sudo systemctl start docker 
+    $ sudo systemctl enable docker 
+
+참고 : bash-completion 자동완성 패키지
+    $ sudo yum install bash-completion
+=> yum list bash-completion
+
+
 # Windows docker 환경변수 설정 
 
 ## windows powerShell(cmd) docker ps 등 명령어 실행시 에러발생시 아래 환결설정 필요
@@ -46,10 +66,15 @@ $Env:DOCKER_CERT_PATH = "C:\Users\ktds\.minikube\certs"
 
 ### docker image 다운로드
 > docker pull <image>
+$ docker pull 이미지 (허브ID/저장소이름:태그)
  
 ### docker image 자세한 정보 확인
 > docker image inspect < image | id >
 
+### image 검색
+    $ docker search cnetos
+    
+    
 ### docker container 확인
     docker ps
     docker ps -a
@@ -64,7 +89,17 @@ $Env:DOCKER_CERT_PATH = "C:\Users\ktds\.minikube\certs"
 ### Container 생성 및 시작
 > docker run <image>
 run: create + start 합친 형태
-  
+
+(참고)hard link : 
+- file -> I-node  : file에 대한 링크 정보를 같고~~~
+    
+### docker tag 부여: 
+-hard link를 붙인다는 의미 
+sudo docker tag 허브ID(onsoftel)/리포지토리이름:태그
+    sudo docker tag centos:latest redface7/2019-02-cccr:centos
+    sudo docker tag centos:latest onsoftel/2019-02-cccr:centos
+    sudo docker push --help     
+    
 ### Contatiner 중지
 > docker stop < name | id > 
 
