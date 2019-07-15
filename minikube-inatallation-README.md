@@ -114,3 +114,6 @@ https://www.virtualbox.org/wiki/Linux_Downloads
 
 ### 가상컴퓨터의 IP확인
     minikube.exe ip
+
+### powerShell(Cmd)에서 minikube ssh로 접속 
+minikube ssh 
