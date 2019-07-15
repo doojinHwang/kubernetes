@@ -1,4 +1,5 @@
 # windows powerShell(cmd) docker ps 등 명령어 실행시 에러발생시.. 아래 2개명령 실행
+Windows에서 powerShell(cmd) 접속시 마다 아래 환경변수 설정이 필요.
 
 ## 1) docker 실행확인
 
