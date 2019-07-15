@@ -96,7 +96,7 @@ minikube-installer.exe
     rm -rf ~/.minikube
 
 ## (옵션) 7. Virtual Studio Code (Text Editor)
-VSCODE
+[VSCODE](https://code.visualstudio.com)
 
 ### macOS
     brew cask install visual-studio-code
