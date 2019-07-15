@@ -71,7 +71,7 @@ https://www.virtualbox.org/wiki/Linux_Downloads
 
 또는
 
-minikube-installer.exe
+[minikube-installer.exe](https://github.com/kubernetes/minikube/releases/latest)
 
 ## 6. minikube 실행
 ### minikube 최초 실행
