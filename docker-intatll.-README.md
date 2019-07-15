@@ -23,7 +23,7 @@ $Env:DOCKER_CERT_PATH = "C:\Users\ktds\.minikube\certs"
 
 ## 3) docker 권한설정
 
-### * powerShell.exe
+### powerShell.exe
 > minikube docker-env | Invoke-Expression 
 
 ### cmd.exe
