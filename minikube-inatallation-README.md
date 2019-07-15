@@ -108,7 +108,7 @@ https://www.virtualbox.org/wiki/Linux_Downloads
 ### Windows
     choco install vscode
 
-### (중요) Visual Studio Code  에서 작성시 편집기 우측 하단의 개행 값을  ##CRLF## 를 ##LF##로 
+#### (중요) Visual Studio Code에서 작성시 편집기 우측 하단의 개행 값을  CRLF를 LF로 변경해야 함 kubernetes에서 제대로 인식함.
 
 <hr/>
 
