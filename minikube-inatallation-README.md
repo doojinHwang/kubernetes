@@ -107,3 +107,8 @@ https://www.virtualbox.org/wiki/Linux_Downloads
 
 ### Windows
     choco install vscode
+
+<hr/>
+
+### 가상컴퓨터의 IP확인
+    minikube.exe ip
