@@ -103,3 +103,9 @@ https://www.virtualbox.org/wiki/Linux_Downloads
 
 ### Windows
     choco install vscode
+
+
+## 설치후 설치확인
+### minikube
+- minikube
+- kubectl
