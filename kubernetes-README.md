@@ -167,8 +167,9 @@ kubernetes   ClusterIP      10.96.0.1       <none>        443/TCP          1d
 -EXTERNAL-IP pending 상태인데 이는 외부 loadblancer 없어서 외부 IP를 얻지 못해서... minikube에서는 아래 명령으로 사용하면 됨.
     minikube.exe tunnel
     
-#### (2) minikube service 서비스명
-위 명령 error발생이 아래 명령으로 실행후 브라우져로 확인(ie에서 error발생시 크롬으로..)  
+#### (2) minikube service 서비스명  
+위 명령 error발생이 아래 명령으로 실행후 브라우져로 확인(ie에서 error발생시 크롬으로..)
+
     minikube.exe service list  
 
 |-------------|------------|-----------------------------|  
