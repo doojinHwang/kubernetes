@@ -6,6 +6,8 @@ kubernetes서버 버전 확인
 Client Version: version.Info{Major:"1", Minor:"15", GitVersion:"v1.15.0", GitCommit:"e8462b5b5dc2584fdcd18e6bcfe9f1e4d970a529", GitTreeState:"clean", BuildDate:"2019-06-19T16:40:16Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"windows/amd64"}
 Server Version: version.Info{Major:"1", Minor:"15", GitVersion:"v1.15.0", GitCommit:"e8462b5b5dc2584fdcd18e6bcfe9f1e4d970a529", GitTreeState:"clean", BuildDate:"2019-06-19T16:32:14Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"linux/amd64"}
 
+위 Client Version과 Server Version일치 여부를 확인한다. 만약 틀릴경우 kubectl 일부 명령이 동작 하질 않을 수 있음
+
 ### 쿠번네티스의 클러스터 정보 확인
     kubectl cluster-info
 dump상세정보확인
