@@ -1,4 +1,10 @@
 
+### kubectl version
+-kubernetes서버 버전 확인
+    kubectl version
+Client Version: version.Info{Major:"1", Minor:"15", GitVersion:"v1.15.0", GitCommit:"e8462b5b5dc2584fdcd18e6bcfe9f1e4d970a529", GitTreeState:"clean", BuildDate:"2019-06-19T16:40:16Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"windows/amd64"}
+Server Version: version.Info{Major:"1", Minor:"15", GitVersion:"v1.15.0", GitCommit:"e8462b5b5dc2584fdcd18e6bcfe9f1e4d970a529", GitTreeState:"clean", BuildDate:"2019-06-19T16:32:14Z", GoVersion:"go1.12.5", Compiler:"gc", Platform:"linux/amd64"}
+
 ### 쿠번네티스의 클러스터 정보 확인
     kubectl cluster-info
 dump상세정보확인
@@ -195,9 +201,12 @@ kubernetes   ClusterIP      10.96.0.1       <none>        443/TCP          1d
     kubectl get rc --watch <== replicationcontroller 상태보기
     kubectl get ps --watch <== pod 상태보기 
 
-### 생성된 오브젝트(pod) 삭제
+### 생성된 오즈젝트 삭제
+#### service 삭제
     kubectl delete service cccr-svc
 결과메시지: service "cccr-svc" deleted
+#### Pod 삭제
+    kubectl delete pod cccr-pod
 
 위 pod를 삭제해도 계속 생성됨 그래서 아래 리플리케이션컨트롤을 삭제함.
     kubectl delete rc cccr-app
@@ -216,3 +225,7 @@ kubernetes   ClusterIP      10.96.0.1       <none>        443/TCP          1d
 
 curl 7.65.1 for windows.zip 다운후 사용자 홈디렉토리(예:C:\Users\abc)에 bin 폴더내 파일 3개(curl.exe, curl-ca-bundle.crt, libcurl-x64.dll) 복사/붙이기 후 해당폴더에서 실행
     ./curl
+    
+    
+    
+ 
