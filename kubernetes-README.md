@@ -31,8 +31,8 @@ dump상세정보확인
 ### YAML
 YAML Ain't Markup Language(YAML은 마크업 언어가 아니다)라는 재귀적인 이름에서 유래...
 (중요) YAML에서는 tab키를 인식하질 않는다.(사용x)
-들여쓰기는 보통 2칸으로 사용
-[YAML](https://yaml.org/)
+들여쓰기는 보통 2칸으로 사용  
+[YAML(https://yaml.org)](https://yaml.org/)
 
 스칼라/스트링, 리스트/어레이, 해시/딕셔너리 3가지 많이 사용.
 
