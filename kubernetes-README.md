@@ -209,3 +209,10 @@ kubernetes   ClusterIP      10.96.0.1       <none>        443/TCP          1d
 ### 오브젝트 확인
     kubectl get pods
  
+
+
+#### (참고) window에서 명령어 일부 error발생시
+[crul설치(https://curl.haxx.se/windows/)(https://curl.haxx.se/windows)
+
+curl 7.65.1 for windows.zip 다운후 사용자 홈디렉토리(예:C:\Users\abc)에 bin 폴더내 파일 3개(curl.exe, curl-ca-bundle.crt, libcurl-x64.dll) 복사/붙이기 후 해당폴더에서 실행
+    ./curl
