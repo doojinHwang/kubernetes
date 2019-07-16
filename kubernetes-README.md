@@ -23,6 +23,10 @@ dump상세정보확인
     kubectl api-resources
     
     
+    
+<hr/>
+
+    
 ## YAML 및 오브젝트
 ### YAML
 YAML Ain't Markup Language(YAML은 마크업 언어가 아니다)라는 재귀적인 이름에서 유래...
