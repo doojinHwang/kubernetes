@@ -60,3 +60,24 @@ YAML Ain't Markup Language(YAML은 마크업 언어가 아니다)라는 재귀�
  시작은 하이픈 3개(---), 끝은 마침표 3개(...)를 사용  
 -주석은 #으로 표시, 한 줄이 끝날 때까지 유효
 -YAML 파일릐 확장자는 yml 또는 yaml  
+
+    apiVersion: v1
+    kind: pod
+    metadata:
+      name: myapp-pod
+      lables:
+        app: myapp
+        type: frontend
+    spec:
+      containers:
+        - name: nginx-container
+          image: nginx
+필수 필드:  
+-apiVersion: 오브젝트를 생성하기 위한 API버전  
+-kind: 오브젝트 종류(pod, services, replcaset, deployment 등등)  
+-metadata: name, UID, namespace 등을 포함하는 기본적인 정보  
+-spec: 오브젝트의 상태 정의, 정의할 요소는 정의하고자 하는 오브젝트의 종류에 따라 다름  
+
+
+
+ 
