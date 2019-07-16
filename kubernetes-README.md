@@ -151,8 +151,8 @@ cccr-app-956n6   1/1       Running   0          38s
 '-------------------------------------------------------  
 kubectl delete pod cccr-app-ddjxr로 삭제해도 pod는 무조건 1개를 생성함.
 
-### --watch command
-1초마다 실시가 보기
+#### --watch command
+1초마다 실시간 보기
 
 #### replicationcontroller 상태보기
     kubectl get rc --watch
@@ -231,4 +231,29 @@ curl 7.65.1 for windows.zip 다운후 사용자 홈디렉토리(예:C:\Users\abc
     
     
     
+ 
+<hr/>
+<hr/>
+
+## 워크로드 파드
+### 파드정의
+파드를 생성할 수 있는 YAML(yml) 작성
+cccr-pod.yml
+    apiVersion: v1
+    kind: Pod
+    metadata:
+      name: cccr-pod
+    spec:
+      containers:
+      - image: c1t1d0s7/cccr
+        name: cccr
+        ports:
+        - containerPort: 8080
+          protocol: TCP
+ 오브젝트 리소스이 API확인: kubectl explain
+ 
+ ### 파드생성
+    kubectl create -f cccr-pod.yml
+ 결과메시지: pod/ccr-pod created
+ 
  
