@@ -25,7 +25,58 @@ cccr-svg.yml
       
 )
 
-서비스 확인
-  kubectl get svc
+#### 서비스 확인
+(참고) svc : services
+  kubectl get svc 
 NAME         TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)   AGE
 kubernetes   ClusterIP   10.96.0.1    <none>        443/TCP   46h
+
+#### 엔드포인트 확인
+서비스와 연결된 파드 확인
+  kubectl get endpoints
+NAME         ENDPOINTS             AGE
+kubernetes   192.168.99.100:8443   46h
+
+위 서비스와 엔드포인트확인 내용은 서비스 확인 결과 10.96.0.1 ip 443port로 접속시 192.168.99.100ip의 8443으로 연결된다는 의미
+kubectl get all     #endpoints정보는 나오질 않음
+kubectl get all .ep #endpoint정보 나옴
+kubectl get po.ep -o wide #파드 엔드포인트 정보 확인
+
+
+### 서비스 접극 테스트
+  kubectl run nettool -it --image=praqma/network-multitool --generator=run-pod/v1 --rm=true bash
+If you don't see a command prompt, try pressing enter.
+bash-5.0#
+
+1초마다 서비스 혹인
+  bash-5.0# watch -n1 -d http://10.96.138.178
+ 
+ ### 서비스 세션 친화성 구성
+ yml 작성시 sessionAffinity: [None | ClientIP] 설정으로 동일 파드로 연결제어 가능
+ 
+ 
+ 
+ # web-was-db 연동 구성
+ 서비스 탐색을 이용하라!!!!
+ 
+ ### DNS을 이용한 서비스 검색
+  kubectl get all -n kube-system -l k8s-app=kube-dns
+NAME                           READY   STATUS    RESTARTS   AGE
+pod/coredns-5c98db65d4-4ntms   1/1     Running   5          47h
+pod/coredns-5c98db65d4-7dql7   1/1     Running   5          47h
+
+
+NAME               TYPE        CLUSTER-IP   EXTERNAL-IP   PORT(S)                  AGE
+service/kube-dns   ClusterIP   10.96.0.10   <none>        53/UDP,53/TCP,9153/TCP   47h
+
+
+NAME                      READY   UP-TO-DATE   AVAILABLE   AGE
+deployment.apps/coredns   2/2     2            2           47h
+
+NAME                                 DESIRED   CURRENT   READY   AGE
+replicaset.apps/coredns-5c98db65d4   2         2         2       47h
+
+
+ 
+ 
+ 
