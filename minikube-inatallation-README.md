@@ -73,6 +73,21 @@ https://www.virtualbox.org/wiki/Linux_Downloads
 
 [minikube-installer.exe](https://github.com/kubernetes/minikube/releases/latest)
 
+### Windows OS Docker 환경변수 설정 
+windows에서 powerShell, cmd로 docker사용시 아래 환경변수 설정이 필요.
+(매번 새로운 창 실행시 마다)
+windows powerShell(cmd) docker ps 등 명령어 실행시 에러발생시.. 아래 2개명령 실행
+    minikube.exe docker-env
+#### powerShell
+    minikube docker-env | Invoke-Expression <== powerShell
+#### Cmd
+    @FOR /f "tokens=*" %i IN ('minikube docker-env') DO @%i <==cmd  
+
+### minikube 구성 파일 초기화
+리눅스 명령어(docker 초기 설치폴더(c:\사용자\~\ 삭제명령)
+    rm -rf ~/.minikube
+
+
 ## 6. minikube 실행
 ### 설치후 설치확인
 - minikube
