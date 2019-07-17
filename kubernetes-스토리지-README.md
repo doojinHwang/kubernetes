@@ -46,45 +46,46 @@ cephfs, cinder, fc, iscsi, flexVolume, focker, glusterfs, quobyte, rbd, vsphereV
 <hr/>
 
 
-  kubectl get pv
-No resources found.
+    kubectl get pv
+No resources found.  
 
-code cccr-nfs-pv.yml 작성
+code cccr-nfs-pv.yml 작성  
 
-  kubectl create -f cccr-hostpaths-pv.yml
-persistentvolume/cccr-nfs-pv created
+    kubectl create -f cccr-hostpaths-pv.yml  
+persistentvolume/cccr-nfs-pv created  
 
-  kubectl get pv
+    kubectl get pv
 NAME          CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE
 cccr-nfs-pv   5Gi        RWX            Retain           Available                                   27s
 
-  kubectl get persistentvolume
+    kubectl get persistentvolume
 NAME          CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS      CLAIM   STORAGECLASS   REASON   AGE
 cccr-nfs-pv   5Gi        RWX            Retain           Available                                   39s
 
-  kubectl create -f cccr-nfs-pvc.yml
+    kubectl create -f cccr-nfs-pvc.yml
 persistentvolumeclaim/cccr-nfs-pvc created
 
-   kubectl get pv,pvc
+    kubectl get pv,pvc
 NAME                           CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                  STORAGECLASS   REASON   AGE
 persistentvolume/cccr-nfs-pv   5Gi        RWX            Retain           Bound    default/cccr-nfs-pvc                           113s
 
 NAME                                 STATUS   VOLUME        CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 persistentvolumeclaim/cccr-nfs-pvc   Bound    cccr-nfs-pv   5Gi        RWX                           29s
 
-  kubectl get persistentvolumeclaims
+    kubectl get persistentvolumeclaims
 NAME           STATUS   VOLUME        CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 cccr-nfs-pvc   Bound    cccr-nfs-pv   5Gi        RWX                           87s
-PS C:\education\02_kubernetes\work\03> kubectl get persistentvolume
+
+    kubectl get persistentvolume
 NAME          CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS   CLAIM                  STORAGECLASS   REASON   AGE
 cccr-nfs-pv   5Gi        RWX            Retain           Bound    default/cccr-nfs-pvc                           2m58s
 
 
-  ubectl create -f cccr-nfs-rs.yml
+    ubectl create -f cccr-nfs-rs.yml
 replicaset.apps/cccr-nfs created
 
 
-  kubectl get pods
+    kubectl get pods
 NAME                  READY   STATUS              RESTARTS   AGE
 cccr-44pmh            1/1     Running             0          125m
 cccr-77kcv            1/1     Running             0          125m
@@ -95,7 +96,7 @@ cccr-liveness-pod     1/1     Running             1          23h
 cccr-nfs-7trkh        0/1     ContainerCreating   0          8s
 cccr-nfs-tk6vj        0/1     ContainerCreating   0          8s
 
-  kubectl describe pv cccr-nfs
+    kubectl describe pv cccr-nfs
 Name:            cccr-nfs-pv
 Labels:          <none>
 Annotations:     pv.kubernetes.io/bound-by-controller: yes
@@ -115,7 +116,7 @@ Source:
     HostPathType:  Directory
 Events:            <none>
 
-  kubectl describe persistentvolumeclaims cccr-nfs-pvc
+    kubectl describe persistentvolumeclaims cccr-nfs-pvc
 Name:          cccr-nfs-pvc
 Namespace:     default
 StorageClass:
@@ -132,28 +133,28 @@ Mounted By:    cccr-nfs-7trkh
                cccr-nfs-tk6vj
 Events:        <none>
 
-  kubectl create -f cccr-nfs-svc.yml
+    kubectl create -f cccr-nfs-svc.yml
 service/cccr-nfs created
 
 (테스트)
-  kubectl run nettool -it --image=praqma/network-multitool --generator=run-pod/v1 --rm=true bash
+    kubectl run nettool -it --image=praqma/network-multitool --generator=run-pod/v1 --rm=true bash
 If you don't see a command prompt, try pressing enter.
 bash-5.0# curl http://cccr-nfs
 
 
-  kubectl delete replicasets.apps cccr-nfs
+    kubectl delete replicasets.apps cccr-nfs
 
-  kubectl delete persistentvolumeclaims cccr-nfs-pvc
+    kubectl delete persistentvolumeclaims cccr-nfs-pvc
 persistentvolumeclaim "cccr-nfs-pvc" deleted
 
-  kubectl create -f cccr-nfs-rs.yml
+    kubectl create -f cccr-nfs-rs.yml
 replicaset.apps/cccr-nfs created
 
-  kubectl get sc
+    kubectl get sc
 NAME                 PROVISIONER                AGE
 standard (default)   k8s.io/minikube-hostpath   2d4h
 
-  kubectl describe sc standard
+    kubectl describe sc standard
 Name:                  standard
 IsDefaultClass:        Yes
 Annotations:           storageclass.kubernetes.io/is-default-class=true
@@ -165,50 +166,50 @@ ReclaimPolicy:         Delete
 VolumeBindingMode:     Immediate
 Events:                <none>
 
-  minikube addons list
-- addon-manager: enabled
-- dashboard: disabled
-- default-storageclass: enabled
-- efk: disabled
-- freshpod: disabled
-- gvisor: disabled
-- heapster: disabled
-- ingress: enabled
-- logviewer: disabled
-- metrics-server: disabled
-- nvidia-driver-installer: disabled
-- nvidia-gpu-device-plugin: disabled
-- registry: disabled
-- registry-creds: disabled
-- storage-provisioner: enabled
-- storage-provisioner-gluster: disabled
+    minikube addons list
+-addon-manager: enabled
+-dashboard: disabled
+-default-storageclass: enabled
+-efk: disabled
+-freshpod: disabled
+-gvisor: disabled
+-heapster: disabled
+-ingress: enabled
+-logviewer: disabled
+-metrics-server: disabled
+-nvidia-driver-installer: disabled
+-nvidia-gpu-device-plugin: disabled
+-registry: disabled
+-registry-creds: disabled
+-storage-provisioner: enabled
+-storage-provisioner-gluster: disabled
 
-  kubectl get storageclass
+    kubectl get storageclass
 NAME                 PROVISIONER                AGE
 standard (default)   k8s.io/minikube-hostpath   2d4h
 
-  minikube addons enable storage-provisioner-gluster
-* storage-provisioner-gluster was successfully enabled
+    minikube addons enable storage-provisioner-gluster
+*storage-provisioner-gluster was successfully enabled
 
-  minikube addons list
-- addon-manager: enabled
-- dashboard: disabled
-- default-storageclass: enabled
-- efk: disabled
-- freshpod: disabled
-- gvisor: disabled
-- heapster: disabled
-- ingress: enabled
-- logviewer: disabled
-- metrics-server: disabled
-- nvidia-driver-installer: disabled
-- nvidia-gpu-device-plugin: disabled
-- registry: disabled
-- registry-creds: disabled
-- storage-provisioner: enabled
-- storage-provisioner-gluster: enabled
+    minikube addons list
+-addon-manager: enabled
+-dashboard: disabled
+-default-storageclass: enabled
+-efk: disabled
+-freshpod: disabled
+-gvisor: disabled
+-heapster: disabled
+-ingress: enabled
+-logviewer: disabled
+-metrics-server: disabled
+-nvidia-driver-installer: disabled
+-nvidia-gpu-device-plugin: disabled
+-registry: disabled
+-registry-creds: disabled
+-storage-provisioner: enabled
+-storage-provisioner-gluster: enabled
 
-  kubectl get ns
+    kubectl get ns
 NAME                STATUS   AGE
 default             Active   2d4h
 development         Active   24h
@@ -219,19 +220,19 @@ quality-assurance   Active   24h
 
 
 
-  kubectl get sc
+    kubectl get sc
 NAME                    PROVISIONER                AGE
 glusterfile (default)   gluster.org/glusterfile    56s
 standard (default)      k8s.io/minikube-hostpath   2d4h
 
-  kubectl delete sc standard
+    kubectl delete sc standard
 storageclass.storage.k8s.io "standard" deleted
 
-  kubectl get sc
+    kubectl get sc
 NAME                    PROVISIONER               AGE
 glusterfile (default)   gluster.org/glusterfile   72s
 
-  kubectl describe sc glusterfile
+    kubectl describe sc glusterfile
 Name:                  glusterfile
 IsDefaultClass:        Yes
 Annotations:           storageclass.beta.kubernetes.io/is-default-class=true
@@ -243,31 +244,31 @@ ReclaimPolicy:         Delete
 VolumeBindingMode:     Immediate
 Events:                <none>
 
-  kubectl get sc
+    kubectl get sc
 NAME                    PROVISIONER                AGE
 glusterfile (default)   gluster.org/glusterfile    3m27s
 standard (default)      k8s.io/minikube-hostpath   87s
 
-  kubectl edit sc standard
+    kubectl edit sc standard
 storageclass.storage.k8s.io/standard edited
 
-  kubectl get sc
+    kubectl get sc
 NAME                    PROVISIONER                AGE
 glusterfile (default)   gluster.org/glusterfile    5m2s
 standard                k8s.io/minikube-hostpath   3m2s
 
 
-  kubectl delete sc standard
+    kubectl delete sc standard
 storageclass.storage.k8s.io "standard" deleted
 
-  kubectl get sc
+    kubectl get sc
 NAME                    PROVISIONER               AGE
 glusterfile (default)   gluster.org/glusterfile   5m19s
 
-  kubectl create -f cccr-dynamic-pvc.yml
+    kubectl create -f cccr-dynamic-pvc.yml
 persistentvolumeclaim/cccr-dynamic-pvc created
 
-  kubectl get pvc,pv
+    kubectl get pvc,pv
 NAME                                     STATUS   VOLUME                                     CAPACITY   ACCESS MODES   STORAGECLASS   AGE
 persistentvolumeclaim/cccr-dynamic-pvc   Bound    pvc-a4606964-0e8f-4b41-933d-3793b50b47bd   100Mi      RWX            glusterfile    15s
 
@@ -276,16 +277,16 @@ persistentvolume/cccr-nfs-pv                                5Gi        RWX      
 persistentvolume/pvc-a4606964-0e8f-4b41-933d-3793b50b47bd   100Mi      RWX            Delete           Bound      default/cccr-dynamic-pvc   glusterfile             12s
 
 
-  kubectl delete pvc cccr-dynamic-pvc
+    kubectl delete pvc cccr-dynamic-pvc
 persistentvolumeclaim "cccr-dynamic-pvc" deleted
 
-  kubectl get pvc,pv
+    kubectl get pvc,pv
 
 NAME                           CAPACITY   ACCESS MODES   RECLAIM POLICY   STATUS     CLAIM                  STORAGECLASS   REASON   AGE
 persistentvolume/cccr-nfs-pv   5Gi        RWX            Retain           Released   default/cccr-nfs-pvc                           21m
 
 
-  kubectl get po
+    kubectl get po
 NAME                  READY   STATUS    RESTARTS   AGE
 cccr-44pmh            1/1     Running   0          148m
 cccr-77kcv            1/1     Running   0          148m
