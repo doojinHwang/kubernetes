@@ -1,3 +1,13 @@
+#### 참고
+#### minikube
+단일 노드 K8S 클러스터로 여러분의 컴퓨터 상에서 로컬로 K8S를 구동하기 쉽도록 해준다. 
+
+<hr/>
+
+
+
+#### kubectl
+K8S 노드와 소통하기 위한 kubectl을 설치하는 것
 
 ### kubectl version
     kubectl version
