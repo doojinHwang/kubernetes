@@ -144,21 +144,21 @@ cccr    3          3         3        19s
 (파드 목록 및 파드 IP 확인)  
   kubectl get pods -o wide
  
-(실시간 확인)
-while (1) {kubectl get po; start-sleep -seconds:1; clear}
+(실시간 확인)  
+  while (1) {kubectl get po; start-sleep -seconds:1; clear}
 
 #### 포트 변경 및 확인
-(포트수정)
+(포트수정)  
   kubectl edit replicaset.apps cccr
 ==> 8080을 8081로 변경 저장
 
-(포트 변경하고 나 후, 현재 동작중인 파드의 포트는 변경되질 않으므로, 기존의 포트를 삭제)
+(포트 변경하고 나 후, 현재 동작중인 파드의 포트는 변경되질 않으므로, 기존의 포트를 삭제)  
   kubectl delete pods -l app=cccr
 
-(새로운 파드가 생성된 것을 확인)
+(새로운 파드가 생성된 것을 확인)  
   kubectl get pods
   
-(엔드포인트 다시 확인)
+(엔드포인트 다시 확인)  
   kubectl get endpoints cccr
 
 
