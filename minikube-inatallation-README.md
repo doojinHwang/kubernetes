@@ -75,8 +75,16 @@ https://www.virtualbox.org/wiki/Linux_Downloads
 
 ### Windows OS Docker 환경변수 설정 
 windows에서 powerShell, cmd로 docker사용시 아래 환경변수 설정이 필요.
+
+먼저 docker 실행확인
+    docker ps
+
+error during connect: Get http://%2F%2F.%2Fpipe%2Fdocker_engine/v1.39/containers/json: open //./pipe/docker_engine: The system cannot find the file specified. In the default daemon configuration on Windows, the docker client must be run elevated to connect. This error may also indicate that the docker daemon is not running.
+
+위와 같음 error메시지가 나오면 아래 명령으로 환경설정
+(windows powerShell(cmd) docker ps 등 명령어 실행시 에러발생시.. 아래 2개명령 실행)
 (매번 새로운 창 실행시 마다)
-windows powerShell(cmd) docker ps 등 명령어 실행시 에러발생시.. 아래 2개명령 실행
+
     minikube.exe docker-env
 #### powerShell
     minikube docker-env | Invoke-Expression <== powerShell
