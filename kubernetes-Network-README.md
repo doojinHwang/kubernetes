@@ -1,8 +1,16 @@
 ## 네트워크
 쿠버네티스를 설치하면 Calico 네트워크가 설치 됨(https://docs.projectcalico.org/v2.0/getting-started/kubernetes/)
 
+(1) 서비스
+(2) 인그레스
+(3) 레디니스 프로브
+(4) 헤드리스 서비스
 
-## 서비스
+<hr/>
+
+
+
+## (1) 서비스
 쿠버네티스의 Pod와 Service의 네트워크 정보
   kubectl cluster-info dump | findstr cluster-ip
   "--service-cluster-ip-range=10.96.0.0/12",
@@ -43,7 +51,7 @@ kubectl get all .ep #endpoint정보 나옴
 kubectl get po.ep -o wide #파드 엔드포인트 정보 확인
 
 
-### 서비스 접극 테스트
+### 서비스 접근 테스트
   kubectl run nettool -it --image=praqma/network-multitool --generator=run-pod/v1 --rm=true bash
 If you don't see a command prompt, try pressing enter.
 bash-5.0#
