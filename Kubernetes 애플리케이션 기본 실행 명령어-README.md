@@ -1,0 +1,104 @@
+## Kubernetes 애플리케이션 기본 실행 명령어
+
+
+### 1) 파드 생성
+
+> kubectl run <파드명> --image=<사용할이미지> --port=8080 [--generator=run/v1]
+
+=> --generator=run/v1: 개발 테스트시만 사용, 복제 컨트롤러를 사용하여 파드를 생성, 생략시  디폴로이먼트 오브젝트로 생성됨
+
+
+### 2) 파드 확인
+
+    kubectl get pods
+
+
+### 3) 레플리케이션 컨트롤러 확인
+
+    kubectl get replicationcontrollers
+
+
+### 4) 서비스 생성
+
+> kubectl expose <CONTROLLER_TYPE> <RESOURCE> [--type=SVC_TYPE] --name <NAME>
+
+    kubectl expose replicationcontroller sample-app <--type=LoadBalancer> --name sample-svc
+
+
+### 5) 서비스 확인
+
+    kubectl get services
+
+⇒ (참고) EXTERNAL-IP는 minikube 사용시에는 외부 로드밸런서 없어서 pending 상태로 IP가 부여되질 않음( minikube tunnel 명령으로 참고)
+
+
+### 6) 서비스 접근
+
+    curl http://ip주소:8080
+
+⇒ 서비스 확인시 EXTERNAL-IP 주소와, POTS확인 후 접속
+
+
+### 7) 파드 스케일링
+
+> kubectl scale replicationcontroller <파드명> --replicas=3
+
+    kubectl scale replicationcontroller sample-app --replicas=3
+
+sample-app 컨트롤러에게 3개의 파드 복제 관리하도록…  
+
+
+### 8) 스케일링 결과 확인
+
+    kubectl get pods
+
+sample-app-**** 3개 목록이 생성된 것을 확인, 이때 파드이름의 -*** 는 쿠버네티스 컨트롤러에서 자동으로 부여함.
+
+    kubectl get replicationcontrollers
+
+NAME           DESIRED     CURRENT    READY    AGE
+
+sample-app   3                   3                    3              10m
+
+⇒ 애플리케이션 컨트롤러의 파드 생성 날짜 및 상태를 확인 가능
+
+
+### 9) 서비스 요청 시 분산된 접근 확인
+
+    curl http://ip주소:8080
+⇒ 결과확인
+    curl http://ip주소:8080
+⇒ 결과확
+    curl http://ip주소:8080
+⇒ 결과확
+------------------------------------------------------
+⇒ 접속시 마다 다른 파드 컨테이너에  분산되는 것을 확인
+
+
+
+### 10) 생성한 오브젝트 삭제
+
+(1) 생성한 오브젝트 확인
+
+    kubectl get all
+
+
+(2) 서비스 삭제
+
+> kubectl delete service <서비스명>
+
+
+(3) 레플리케이션 컨트롤러 삭제
+
+> kubectl delete reclicationcontrollers <레플리케이션컨트롤러명>
+
+
+(4) 파드삭제
+
+⇒ 레플리케이션 컨트롤러에서 관리되는 pod는 해당 컨트롤러 삭제시 삭제됨
+
+
+(5) 삭제 여부 확인
+
+    kubectl get all
+    
