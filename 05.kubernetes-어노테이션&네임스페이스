@@ -9,7 +9,8 @@
     kubectl describe pods cccr-label-pod 로 확인 가능
 ⇒ Annotations:  devops-team/developer: DJ
 
-
+<hr/>
+<br><br><br>
 
 ## 네임스페이스
 리소스(Pod 등) 를 논리적으로 오브젝트를 분리  
